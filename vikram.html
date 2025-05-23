@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css"> <!-- External CSS -->
+    <style>
+        /* Fade-in animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="#welcome">Welcome</a></li>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#achievements">Achievements</a></li>
+            <li><a href="#goals">Future Goals</a></li>
+            <li><a href="#personal">Personal Side</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+
+        <!-- Hero Section -->
+        <header class="hero fade-in">
+            <h1>Welcome to My Portfolio</h1>
+            <p>Hi, I'm Vikram Choudhary. Explore my journey and aspirations!</p>
+        </header>
+
+        <!-- Welcome Section -->
+        <section id="welcome" class="section box fade-in">
+            <h2>Welcome</h2>
+            <p class="intro-text">Thanks for visiting! Here's a quick glimpse into my professional and personal life.
+                I'm passionate about learning, growing, and sharing what I discover.</p>
+            <div class="media">
+                <img src="your-photo.jpeg" alt="Your Photo" class="profile-photo fade-in" width="200" height="200">
+                <iframe width="250" height="200" class="fade-in" src="https://www.youtube.com/embed/Q4kR6vM8xvQ"
+                    title="Motivational Speech by Sandeep Maheshwari" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                </iframe>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="section box fade-in">
+            <h2>About Me</h2>
+            <p><strong>Name:</strong> Vikram Choudhary</p>
+            <p><strong>Location:</strong> Vasai</p>
+            <p><strong>Education:</strong> ST. John College Of Engineering & Management<br>Branch: Computer Engineering
+            </p>
+            <p><strong>Languages Known:</strong> C, Python, C++</p>
+        </section>
+
+        <!-- Achievements Section -->
+        <section id="achievements" class="section box fade-in">
+            <h2>Achievements</h2>
+            <ul>
+                <li>Developed multiple apps using AR/VR and Android app development</li>
+                <li>Completed internship in AR and VR</li>
+            </ul>
+        </section>
+
+        <!-- Future Goals Section -->
+        <section id="goals" class="section box fade-in">
+            <h2>Future Goals</h2>
+            <p>I aim to become a Software Engineer and contribute to the development of scalable, secure, and
+                sustainable infrastructure.</p>
+        </section>
+
+        <!-- Personal Side Section -->
+        <section id="personal" class="section box fade-in">
+            <h2>Personal Side</h2>
+            <p><strong>Hobbies:</strong> Learning new things, reading books</p>
+            <p><strong>Role Model:</strong> Elon Musk</p>
+            <p><strong>Favorite Book:</strong> The Power of Subconscious Mind</p>
+            <p><strong>Favorite Website/Startup:</strong> Wix Studio</p>
+            <p><strong>Volunteering Experience:</strong> None yet</p>
+        </section>
+
+        <!-- Shop Section -->
+        <section id="shop" class="section box">
+            
+            <h2>My Shop</h2>
+
+            <!-- Add a wrapper for the product items -->
+            <div class="product-container">
+                <div class="product">
+                    <img src="tshirt.jpeg" alt="Vanhussen T-Shirt" width="150">
+                    <p><strong>Product:</strong> Vanhussen T-Shirt</p>
+                    <p><strong>Price:</strong> ₹499</p>
+                    <button onclick="addToCart('Vanhussen T-Shirt', 499)">Add to Cart</button>
+                </div>
+
+                <div class="product">
+                    <img src="sticker.jpeg" alt="Gucci Panda Sticker" width="150">
+                    <p><strong>Product:</strong> Gucci Panda Sticker</p>
+                    <p><strong>Price:</strong> ₹199</p>
+                    <button onclick="addToCart('Gucci Panda Sticker', 199)">Add to Cart</button>
+                </div>
+            </div>
+
+            <h3>Your Cart</h3><br>
+            <ul id="cart"></ul>
+            <h3>To order click here : <a href="#contact">Contact</a></h3>
+
+
+
+        </section>
+
+
+        <!-- Contact Section -->
+        <section id="contact" class="section box fade-in">
+            <h2>Contact Me</h2>
+            <form action="https://formsubmit.co/vikramchoudhary3107@gmail.com" method="POST">
+                <label for="email">Your Email:</label><br>
+                <textarea name="email" id="email" rows="1" placeholder="vikramchoudhary3107@gmail.com"
+                    required></textarea><br><br>
+
+                <label for="message">Your Message:</label><br>
+                <textarea name="message" id="message" rows="5" placeholder="Write your message here..." required>
+                </textarea><br><br>
+
+                <iframe class="map-frame fade-in"
+                    src="https://www.google.com/maps?q=Palghar,+Maharashtra,+India&output=embed">
+                </iframe><br><br>
+
+                <button type="submit">Send</button>
+            </form>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer fade-in">
+            <p>Contact me at:</p>
+            <p>Email: <a href="mailto:vikramchoudhary3107@gmail.com">vikramchoudhary3107@gmail.com</a></p>
+            <p>WhatsApp: <a href="https://wa.me/918600314243" target="_blank">8600314243</a></p>
+            <p class="thank-you">Thanks for visiting my portfolio. Let's connect and build something amazing!</p>
+        </footer>
+
+    </div>
+
+    <!-- Scroll Animation Script -->
+    <script>
+        const faders = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.2
+        });
+
+        faders.forEach(fader => observer.observe(fader));
+    </script>
+    <!-- Shopping Cart Script -->
+    <script>
+        const cart = [];
+
+        function addToCart(productName, price) {
+            cart.push({ name: productName, price: price });
+            displayCart();
+        }
+
+        function displayCart() {
+            const cartElement = document.getElementById('cart');
+            cartElement.innerHTML = '';
+            cart.forEach((item, index) => {
+                const li = document.createElement('li');
+                li.textContent = `${item.name} - ₹${item.price}`;
+                cartElement.appendChild(li);
+            });
+        }
+    </script>
+
+</body>
+
+</html>

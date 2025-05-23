@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Shop - Vikram's Store</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: black;
+      color: white;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 18px;
+      color: white;
+    }
+
+    nav {
+      margin-bottom: 20px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .product {
+      border: 1px solid #555;
+      padding: 10px;
+      text-align: center;
+      border-radius: 10px;
+      background-color: #111;
+      color: white;
+      box-shadow: 0 0 10px #222;
+      transition: transform 0.2s ease;
+    }
+
+    .product:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #fff;
+    }
+
+    .product img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      margin-bottom: 10px;
+    }
+
+    #cart-section {
+      margin-top: 30px;
+      border-top: 2px solid white;
+      padding-top: 20px;
+    }
+
+    #cart-items {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0;
+      color: white;
+    }
+
+    .cart-title {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    #cart-total {
+      font-weight: bold;
+      font-size: 18px;
+      color: white;
+    }
+
+    button {
+      background-color: #444;
+      border: none;
+      padding: 8px 15px;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #666;
+    }
+  </style>
+</head>
+<body>
+
+  <nav><a href="index.html">← Back to Home</a></nav>
+
+  <h1>Welcome to the Shop</h1>
+
+  <div class="product-grid" id="productGrid"></div>
+
+  <div id="cart-section">
+    <div class="cart-title">🛒 Items in Cart:</div>
+    <ul id="cart-items"></ul>
+    <div id="cart-total">Total Price: ₹0</div>
+  </div>
+
+  <script>
+    const products = [
+      { name: 'T-Shirt', price: 499, img: 'tshirt.jpeg' },
+      { name: 'Sticker', price: 199, img: 'sticker.jpeg' },
+      { name: 'Shoes', price: 799, img: 'shoes.jpeg' },
+      { name: 'Sunglasses', price: 299, img: 'glasses.jpeg' },
+      { name: 'Backpack', price: 999, img: 'bag.jpeg' },
+      { name: 'Watch', price: 699, img: 'watch.jpeg' },
+      { name: 'Cap', price: 149, img: 'cap.jpeg' },
+      { name: 'Notebook', price: 79, img: 'notebook.jpeg' },
+      { name: 'Headphones', price: 1299, img: 'headphones.jpeg' },
+      { name: 'Pen Pack', price: 59, img: 'pen.jpeg' },
+      { name: 'Mouse', price: 349, img: 'mouse.jpeg' },
+      { name: 'Keyboard', price: 499, img: 'keyboard.jpeg' },
+      { name: 'Bottle', price: 249, img: 'bottle.jpeg' },
+      { name: 'Mobile Cover', price: 199, img: 'cover.jpeg' },
+      { name: 'Power Bank', price: 1099, img: 'powerbank.jpeg' },
+      { name: 'Torch', price: 159, img: 'torch.jpeg' },
+      { name: 'Slippers', price: 399, img: 'slippers.jpeg' },
+      { name: 'Hair Oil', price: 99, img: 'hairoil.jpeg' },
+      { name: 'Toothpaste', price: 69, img: 'toothpaste.jpeg' },
+      { name: 'Face Wash', price: 179, img: 'facewash.jpeg' }
+    ];
+
+    let total = 0;
+    const productGrid = document.getElementById('productGrid');
+    const cartItems = document.getElementById('cart-items');
+    const cartTotal = document.getElementById('cart-total');
+
+    products.forEach(product => {
+      const div = document.createElement('div');
+      div.className = 'product';
+
+      div.innerHTML = `
+        <img src="${product.img}" alt="${product.name}">
+        <p><strong>${product.name}</strong></p>
+        <p>Price: ₹${product.price}</p>
+        <button onclick="addToCart('${product.name}', ${product.price})">Add to Cart</button>
+      `;
+
+      productGrid.appendChild(div);
+    });
+
+    function addToCart(name, price) {
+      total += price;
+      const li = document.createElement('li');
+      li.textContent = `${name} - ₹${price}`;
+      cartItems.appendChild(li);
+      cartTotal.textContent = 'Total Price: ₹' + total;
+    }
+  </script>
+
+</body>
+</html>
